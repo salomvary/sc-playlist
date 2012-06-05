@@ -377,7 +377,7 @@ App.PlaylistView = App.CollectionView.extend({
 	onFinish: function(track) {
 		// play next track
 		var index = _.indexOf(this.views, track);
-		if(index > 0 && index < this.views.length - 1) {
+		if(index >= 0 && index < this.views.length - 1) {
 			this.views[index + 1].widget.play();
 		}
 	},
