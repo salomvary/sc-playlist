@@ -1,0 +1,57 @@
+.container {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.menu {
+	padding: 8px 0;
+}
+
+.bookmarklet {
+	margin: 20px 0;
+}
+
+/** Playlist/Track */
+.tracks {
+	margin-top: -15px;
+}
+
+.track {
+	border: 3px solid #fff;
+	border-radius: 5px;
+	padding: 5px 5px 0 5px;
+	margin: 0 -7px 0 -7px;
+	position: relative;
+}
+
+.track.playing {
+	border-color: #f60;
+}
+
+.track .close {
+	position: absolute;
+	top: 0px;
+	left: -20px;
+}
+
+/* Editable */
+.editable {
+	cursor: text;
+}
+
+.editable:hover {
+	background: #ffffd3;
+}
+
+.editable.empty {
+	color: #ccc;
+}
+
+.editable input {
+	width: 100%;
+	margin: 0;
+	box-sizing: border-box;
+	height: auto;
+	font: inherit;
+}
+

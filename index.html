@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+  	<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.css">
+		<link rel="stylesheet" href="app.css">
+	</head>
+	<body>
+		<div class="container">
+
+			<!-- header -->
+			<div class="row">
+				<div class="span12">
+					<div class="page-header">
+						<div class="row">
+							
+							<!-- title and add button -->
+							<h1 class="span9 editable playlist-title"></h1>
+							<button class="btn btn-primary btn-large span3 add-track-btn">
+								<i class="icon-plus icon-white"></i>
+								Add track
+							</button>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span9">
+
+					<!-- add track -->
+					<form class="form-inline add-track-form">
+
+						<div class="control-group">
+							<div class="input-append">
+								<input type="url" class="span7" 
+									placeholder="paste SoundCloud track URL here"/><button 
+									type="submit" class="btn">Save</button>
+							</div>
+							<div class="help-inline">
+								<a href="#" class="cancel">Cancel</a>
+							</div>
+						</div>
+						<div class="control-group message" style="display:none">
+							<div class="help-inline">This does not seem to be SoundCloud track</div>
+						</div>
+					</form>
+
+					<!-- description -->
+					<p class="well editable playlist-description"></p>
+
+					<!-- track list -->
+					<p class="alert empty-list">
+						Playlist is empty yet.
+						<a href="#" class="add-track-btn">Start adding tracks!</a>
+					</p>
+					<!-- TODO
+					<p class="alert alert-info loading">
+						Loading tracks...
+					</p>
+					-->
+					<div class="tracks"></div>
+				</div>
+
+				<!-- sidebar -->
+				<aside class="span3 playlists">
+					<div class="well menu">
+						<ul class="nav nav-list">
+							<li class="nav-header">My playlists</li>
+							<li class="divider"></li>							
+							<li><a href="#" class="create-btn">
+								<i class="icon-plus icon-black"></i>
+								Create new playlist
+							</a></li>
+						</ul>
+					</div>
+					<p>
+						<button class="btn btn-danger destroy-btn" type="button">
+							<i class="icon-trash icon-white"></i>
+							Delete playlist
+						</button>
+					</p>
+					<p class="well bookmarklet">
+						Drop this <b><a href="#" class="bookmarklet">Save SC track</a> bookmarklet</b> to your <b>bookmarks 
+						bar</b> and press on any SoundCloud track to add it quickly 
+						to the current playlist.
+					</p>
+				</aside>
+			</div>
+		</div>
+
+		<script src="http://code.jquery.com/jquery-1.7.2.js"></script>
+		<script src="http://connect.soundcloud.com/sdk.js"></script>
+		<script src="http://w.soundcloud.com/player/api.js"></script>
+		<script src="underscore.js"></script>
+		<script src="backbone.js"></script>
+		<script src="backbone-localstorage.js"></script>
+		<script src="app.js"></script>
+		<script src="model.js"></script>
+
+	</body>
+</html>
