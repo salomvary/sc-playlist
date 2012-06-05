@@ -31,8 +31,9 @@ var App = Backbone.View.extend({
 		this.$('.bookmarklet').attr('href',
 			"javascript:window.open('" +
 			encodeURI(window.location.protocol + '//' +
-			window.location.host) +
-			"%2Fbookmarklet.html%3F'%2BencodeURI(window.location.href)%2C'add-track'%2C%20'width%3D500%2Cheight%3D180')");
+			window.location.host + 
+			window.location.pathname) +
+			"bookmarklet.html%3F'%2BencodeURI(window.location.href)%2C'add-track'%2C%20'width%3D500%2Cheight%3D180')");
 	},
 
 	showForm: function() {
