@@ -41,20 +41,19 @@ var App = Backbone.View.extend({
 	},
 
 	showPlaylist: function(playlist) {
+		// remove previous playlist
 		if(this.playlistView) {
 			this.playlistView.remove();
 			this.addTrackForm.off('submit');
 		}
+		// show playlist
 		this.playlistView = new App.PlaylistView({
 			el: '.container',
 			model: playlist
 		});
+		// add track to playlist
 		this.addTrackForm.on('submit', this.playlistView.addTrack, 
 			this.playlistView);
-
-		// set window title
-		document.title = (playlist.get('title') || 'Untitled') +
-			' | SoundCloud Playlist';
 	}
 });
 
@@ -361,6 +360,17 @@ App.PlaylistView = App.CollectionView.extend({
 		this.render();
 
 		this.on('finish', this.onFinish, this);
+
+		// set and update title
+		this.setTitle(this.model);
+		this.model.on('change:title', this.setTitle, this);
+	},
+
+	/** sets document.title */
+	setTitle: function(playlist) {
+		// set window title
+		document.title = (playlist.get('title') || 'Untitled') +
+			' | SoundCloud Playlist';
 	},
 
 	/** Track finished playing */
@@ -391,6 +401,7 @@ App.PlaylistView = App.CollectionView.extend({
 		this.undelegateEvents();
 		this.title.remove();
 		this.description.remove();
+		this.model.off('change:title', this.setTitle, this);
 		_.invoke(this.views, 'remove');
 	}
 });
